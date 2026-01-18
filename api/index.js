@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     
     // 👇👇 YAHAN CHANGE KIYA HAI 👇👇
     //const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
     const systemInstruction = `
     Generate a project file structure based on the prompt.
     Return ONLY a JSON array: [{"filename": "...", "code": "..."}].
