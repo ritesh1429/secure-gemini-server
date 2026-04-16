@@ -22,9 +22,11 @@ export default async function handler(req, res) {
     const systemInstruction = `
     You are a code generator.
     Generate a project file structure based on the prompt.
+    CRITICAL RULE: If the user does not specify a programming language, auto-detect and use the most appropriate language for the requested task.
     Return ONLY a valid JSON array.
     Format: [{"filename": "...", "code": "..."}]
     Do not add any conversational text before or after the JSON.
+    CRITICAL: Do NOT include any comments (like //, /* */, , or #) in the generated code. Provide only the raw, functional code.
     `;
 
     const result = await model.generateContent(systemInstruction + `\nPrompt: "${prompt}"`);
