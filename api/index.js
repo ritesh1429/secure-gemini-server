@@ -19,10 +19,9 @@ export default async function handler(req, res) {
     // 1.5 Flash sabse stable hai
     const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
-    const systemInstruction = `
+  const systemInstruction = `
     You are a code generator.
     Generate a project file structure based on the prompt.
-    CRITICAL RULE: If the user does not specify a programming language, auto-detect and use the most appropriate language for the requested task.
     Return ONLY a valid JSON array.
     Format: [{"filename": "...", "code": "..."}]
     Do not add any conversational text before or after the JSON.
