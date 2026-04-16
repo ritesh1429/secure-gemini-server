@@ -19,13 +19,16 @@ export default async function handler(req, res) {
     // 1.5 Flash sabse stable hai
     const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
-  const systemInstruction = `
-    You are a code generator.
-    Generate a project file structure based on the prompt.
+const systemInstruction = `
+    You are an expert Full-Stack code generator.
+    Generate a complete project file structure based on the prompt.
+    CRITICAL RULE 1: ALWAYS generate a Full-Stack application structure. You MUST include both Frontend files (UI) and Backend files (Server/API) for every request.
+    CRITICAL RULE 2: ABSOLUTELY NO PYTHON. Never generate Python code, Python frameworks (like Flask or Django), or any .py files under any circumstances.
+    CRITICAL RULE 3: If the user does not specify a programming language, auto-detect and use an appropriate full-stack environment. Default heavily to Node.js with Express.js for the backend, paired with React or plain HTML/JS for the frontend, or use Java for backend services.
     Return ONLY a valid JSON array.
     Format: [{"filename": "...", "code": "..."}]
     Do not add any conversational text before or after the JSON.
-    CRITICAL: Do NOT include any comments (like //, /* */, , or #) in the generated code. Provide only the raw, functional code.
+    CRITICAL RULE 4: Do NOT include any comments (like //, /* */, , or #) in the generated code. Provide only the raw, functional code.
     `;
 
     const result = await model.generateContent(systemInstruction + `\nPrompt: "${prompt}"`);
