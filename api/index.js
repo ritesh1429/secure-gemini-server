@@ -17,7 +17,7 @@ export default async function handler(req, res) {
 
     const genAI = new GoogleGenerativeAI(apiKey);
     // 1.5 Flash sabse stable hai
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-3-flash-preview" });
 
  const systemInstruction = `
     You are 'ServerHero', an expert Web Technologies code generator tailored for academic exams.
