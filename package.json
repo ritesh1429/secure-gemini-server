@@ -1,6 +1,6 @@
 {
   "name": "gemini-server",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "api/index.js",
   "scripts": {
     "start": "node api/index.js"

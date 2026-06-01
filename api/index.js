@@ -17,7 +17,7 @@ export default async function handler(req, res) {
 
     const genAI = new GoogleGenerativeAI(apiKey);
     // 1.5 Flash sabse stable hai
-    const model = genAI.getGenerativeModel({ model: "gemini-3-flash-preview" });
+    const model = genAI.getGenerativeModel({ model: "gemini-3.1-flash-lite" });
 
  const model = genAI.getGenerativeModel({
       model: "gemini-3.0-flash", // Aap gemini-2.5-flash bhi try kar sakte hain agar yeh error de
